@@ -43,12 +43,12 @@ router.patch('/update/:id', async (req, res) => {
 
 router.delete('/delete/:id', async (req, res) => {
     try {
-        const movies = await scheme.findById(req.params.id);
-        await movies.deleteOne();
-        response.send(product);
+        const movie = await scheme.findById(req.params.id);
+        await movie.deleteOne();
+        res.send(movie);
     } catch {
-        response.status(404);
-        response.send({ error: 'movies does not exist' })
+        res.status(404);
+        res.send({ error: 'movies does not exist' })
     }
 });
 
